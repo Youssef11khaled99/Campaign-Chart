@@ -73,3 +73,24 @@ input:hover {
   display: flex;
   flex-direction: column;
 }
+/* Add Button */
+
+button#enter {
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.2em;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  background-color: #63b931;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  transition: background-color 1s;
+}
+
+button#enter:hover {
+  background: #74ce3b;
+}
