@@ -1,0 +1,65 @@
+.coolTitle {
+    text-align: center;
+    font-family: "Oswald", Helvetica, sans-serif;
+    font-size: 40px;
+    transform: skewY(-10deg);
+    letter-spacing: 4px;
+    word-spacing: -8px;
+    color: tomato;
+    text-shadow: -1px -1px 0 firebrick, -2px -2px 0 firebrick,
+      -3px -3px 0 firebrick, -4px -4px 0 firebrick, -5px -5px 0 firebrick,
+      -6px -6px 0 firebrick, -7px -7px 0 firebrick, -8px -8px 0 firebrick,
+      -30px 20px 40px dimgrey;
+  }
+
+/* header styles starts here */
+header {
+    margin-top: 5px;
+}
+header h1 {
+color: #525252;
+font-weight: bold;
+margin-bottom: 0;
+text-transform: uppercase;
+text-align: center;
+}
+
+header h1 span {
+color: #fafafa;
+font-style: italic;
+text-decoration: line-through;
+}
+#first {
+color: #424242;
+}
+
+/* 3 borders color after h1 */
+div.borderBottom {
+    margin: 0 auto;
+    width: 300px;
+  }
+  
+  div.borderColor1 {
+    display: inline-block;
+    background: #fdb44b;
+    width: 95px;
+    height: 5px;
+  }
+  
+  div.borderColor2 {
+    display: inline-block;
+    background: #f71e35;
+    width: 95px;
+    height: 5px;
+  }
+  
+  div.borderColor3 {
+    display: inline-block;
+    background: #0066b3;
+    width: 95px;
+    height: 5px;
+  }
+/* shoppingList section style starts here */
+.secondHeader {
+    text-align: center;
+  }

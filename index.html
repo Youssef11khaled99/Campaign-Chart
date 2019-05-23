@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="./node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="./chart.js"></script>
+    <title>Campaign Charter</title>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-shopping-basket"></i>Shopping<span>List</span></h1>
+        <!-- 3 borders color under the h1 element -->
+        <div class="borderBottom">
+            <div class="borderColor1"></div>
+            <div class="borderColor2"></div>
+            <div class="borderColor3"></div>
+        </div>
+    </header>
+    <!-- end of borderBottom -->
+    <div class="secondHeader">
+    <h2 id="first">Get it done today</h2>
+    <input id="userinput" type="text" placeholder="Enter items!" />
+    </div>
+
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let barChart = new Chart(myChart, {
+        type: 'bar',
+        data: {
+            labels: ['USA', 'EGY'],
+            dataSets: [{
+                label: "budget",
+                data: [
+                    149,
+                    139
+                ]
+
+            }]
+        },
+        option: {}
+    })
+</script>
+
+</html>
