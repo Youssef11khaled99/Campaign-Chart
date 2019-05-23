@@ -1,6 +1,24 @@
 import express from 'express';
 import db from './db/db';
 import bodyParser from 'body-parser';
+
+const knex = require('knex')
+
+
+const postgresDb = knex({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : 'test',
+    database : 'Campaigns'
+  }
+});
+
+postgresDb.select('*').from('Campaigns').then(data => {
+  console.log(data);
+}
+  )
 // Set up the express app
 const app = express();
 
