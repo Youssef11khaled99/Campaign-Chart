@@ -25,9 +25,8 @@ text-align: center;
 }
 
 header h1 span {
-color: #fafafa;
+color: rgb(253, 180, 75);
 font-style: italic;
-text-decoration: line-through;
 }
 #first {
 color: #424242;
