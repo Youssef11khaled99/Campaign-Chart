@@ -1,16 +1,6 @@
-.coolTitle {
-    text-align: center;
-    font-family: "Oswald", Helvetica, sans-serif;
-    font-size: 40px;
-    transform: skewY(-10deg);
-    letter-spacing: 4px;
-    word-spacing: -8px;
-    color: tomato;
-    text-shadow: -1px -1px 0 firebrick, -2px -2px 0 firebrick,
-      -3px -3px 0 firebrick, -4px -4px 0 firebrick, -5px -5px 0 firebrick,
-      -6px -6px 0 firebrick, -7px -7px 0 firebrick, -8px -8px 0 firebrick,
-      -30px 20px 40px dimgrey;
-  }
+body {
+  background-color: #07b49a78;
+}
 
 /* header styles starts here */
 header {
@@ -25,7 +15,7 @@ text-align: center;
 }
 
 header h1 span {
-color: rgb(253, 180, 75);
+color: #f71e35;
 font-style: italic;
 }
 #first {
@@ -60,5 +50,21 @@ div.borderBottom {
   }
 /* shoppingList section style starts here */
 .secondHeader {
-    text-align: center;
-  }
+  text-align: center;
+}
+
+#userinput {
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 1.2em;
+  color: #616161;
+  opacity: 0.8;
+  transition: opacity 400ms;
+}
+
+input:hover {
+  opacity: 1;
+}
