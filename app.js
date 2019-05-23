@@ -14,11 +14,10 @@ const postgresDb = knex({
     database : 'Campaigns'
   }
 });
-
+/*
 postgresDb.select('*').from('Campaigns').then(data => {
   console.log(data);
-}
-  )
+})*/
 // Set up the express app
 const app = express();
 
@@ -43,18 +42,24 @@ let dummyCategory = '';
 
 // GET ALL CAMPAIGNS
 app.get('/api/v1/campaigns', (req, res) => {
-    const query = req.query;
-    country = query.country;
-    budget = query.budget;
-    goal = query.goal;
-    category = query.category;
+    const {qCountry, qBudget, qGoal, qCategory} = req.query;
+    // USING POSTGRESDB
+    // postgresDb.select('*').from('Campaigns').where({
+    //   qCountry : country,
+    //   qGoal : goal,
+    //   qCategory : category,
+    // }) .andWhere('qBudget', '<', budget)
+    // .then(campaign => {
+    //   console.log(campaign);
+    // })
+    //USING DUMMY DATABASE
     console.log(req.body.country);
     let newCampaigns = db.filter(function (campaign) {
         
-        return  (campaign.country === country || country === undefined) &&
-                (campaign.budget >= budget || budget === undefined) &&
-                (campaign.goal === goal || goal === undefined) &&
-                (campaign.category === category || category === undefined);
+        return  (campaign.country === qCountry || qCountry === undefined) &&
+                (campaign.budget >= qBudget || qBudget === undefined) &&
+                (campaign.goal === qGoal || qGoal === undefined) &&
+                (campaign.category === qCategory || qCategory === undefined);
         
             
     });
@@ -74,18 +79,17 @@ app.get('/api/v1/campaigns', (req, res) => {
 
 // GET A SINGLE CAMPAIGN
 app.get('/api/v1/campaigns/:name', (req, res) => {
-    const name = req.params.name;
-    const query = req.query;
+    const { name } = req.params;
     
-    db.map((campaign) => {
-      if (campaign.name === name) {
-        return res.status(200).send({
-          success: 'true',
-          message: 'campaign retrieved successfully',
-          campaign,
-        });
-      } 
-  });
+    // db.map((campaign) => {
+    //   if (campaign.name === name) {
+    //     return res.status(200).send({
+    //       success: 'true',
+    //       message: 'campaign retrieved successfully',
+    //       campaign,
+    //     });
+    //   } 
+  //});
    return res.status(404).send({
      success: 'false',
      message: 'campaign does not exist',
@@ -94,6 +98,7 @@ app.get('/api/v1/campaigns/:name', (req, res) => {
 
 // ADD CAMPAIGN
 app.post('/api/v1/campaigns', (req, res) => {
+    const {country, budget, goal, category} = req.body;
     if(!req.body.country) {
       return res.status(400).send({
         success: 'false',
@@ -111,12 +116,21 @@ app.post('/api/v1/campaigns', (req, res) => {
       });
     }
    const campaign = {
-    name: `n${db.length + 1}`,
-    "country": req.body.country,
-    "budget": req.body.budget,
-    "goal": req.body.goal,
-    "category": req.body.category 
+    "name": `n${db.length + 1}`,
+    "country": country,
+    "budget": budget,
+    "goal": goal,
+    "category": category 
    }
+   // USING POSTGRESDB
+  //  postgresDb.insert({
+  //   name: `n${db.length + 1}`,
+  //   country: country,
+  //   budget: budget,
+  //   goal: goal,
+  //   category: category 
+  //  }).then(console.log)
+   //USING DUMMY DATABASE
    db.push(campaign);
    return res.status(201).send({
      success: 'true',
